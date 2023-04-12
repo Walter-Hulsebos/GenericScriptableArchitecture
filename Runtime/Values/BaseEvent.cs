@@ -4,6 +4,10 @@
     using UnityEditor;
     using UnityEngine;
 
+    
+    #if ODIN_INSPECTOR
+    [Sirenix.OdinInspector.InlineEditor]
+    #endif
     public abstract class BaseEvent : GenericScriptableObject
     {
         internal static bool CanBeInvoked(string objectName, string typeName)

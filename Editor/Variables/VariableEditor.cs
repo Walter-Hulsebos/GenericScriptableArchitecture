@@ -54,7 +54,7 @@
         private readonly SerializedProperty _initialValue;
         private bool _initialValueEnabled;
         protected readonly VariableHelperDrawer _variableHelperDrawer;
-        protected readonly SerializedProperty _description;
+        //protected readonly SerializedProperty _description;
         private readonly SerializedObject _serializedObject;
         private readonly InspectorGUIHelper _inspectorGUIHelper;
 
@@ -65,7 +65,7 @@
             var variableHelper = target.VariableHelper;
             var variableHelperProperty = serializedObject.FindProperty(nameof(Variable<int>._variableHelper));
             _variableHelperDrawer = new VariableHelperDrawer(variableHelper, variableHelperProperty, repaint);
-            _description = serializedObject.FindProperty(nameof(BaseValue._description));
+            //_description = serializedObject.FindProperty(nameof(BaseValue._description));
         }
 
         public virtual void Update()
@@ -85,7 +85,7 @@
 
         protected virtual void DrawGUI()
         {
-            EditorGUILayout.PropertyField(_description);
+            //EditorGUILayout.PropertyField(_description);
             DrawInitialValue();
             _variableHelperDrawer.DrawCurrentValue();
             _variableHelperDrawer.DrawStackTrace();
@@ -164,7 +164,7 @@
 
         protected override void DrawGUI()
         {
-            EditorGUILayout.PropertyField(_description);
+            //EditorGUILayout.PropertyField(_description);
             DrawInitialValue();
             _drawerWithHistory.DrawCurrentValue(_variableHelperDrawer);
             _drawerWithHistory.DrawPreviousValue();
