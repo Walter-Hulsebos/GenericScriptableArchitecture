@@ -24,7 +24,7 @@
         [SerializeField] internal ScriptableEvent _event;
         [SerializeField] internal EventInstancer _eventInstancer;
 
-        private IScriptableEvent Event => _eventType == EventType.ScriptableEvent ? _event : _eventInstancer;
+        private IScriptableEvent Event => (_eventType == EventType.ScriptableEvent) ? (IScriptableEvent)_event : (IScriptableEvent)_eventInstancer;
 
 #if UNIRX
         public IDisposable Subscribe(IObserver<Unit> observer) => Event?.Subscribe(observer) ?? Disposable.Empty;
@@ -87,7 +87,7 @@
         [SerializeField] internal ScriptableEvent<T> _event;
         [SerializeField] internal EventInstancer<T> _eventInstancer;
 
-        private IScriptableEvent<T> Event => _eventType == EventType.ScriptableEvent ? _event : _eventInstancer;
+        private IScriptableEvent<T> Event => (_eventType == EventType.ScriptableEvent) ? (IScriptableEvent<T>)_event : (IScriptableEvent<T>)_eventInstancer;
 
 #if UNIRX
         public IDisposable Subscribe(IObserver<T> observer) => Event?.Subscribe(observer) ?? Disposable.Empty;
@@ -150,7 +150,7 @@
         [SerializeField] internal ScriptableEvent<T1, T2> _event;
         [SerializeField] internal EventInstancer<T1, T2> _eventInstancer;
 
-        private IScriptableEvent<T1, T2> Event => _eventType == EventType.ScriptableEvent ? _event : _eventInstancer;
+        private IScriptableEvent<T1, T2> Event => (_eventType == EventType.ScriptableEvent) ? (IScriptableEvent<T1, T2>)_event : (IScriptableEvent<T1, T2>)_eventInstancer;
 
 #if UNIRX
         public IDisposable Subscribe(IObserver<(T1, T2)> observer) => Event?.Subscribe(observer) ?? Disposable.Empty;
@@ -213,7 +213,7 @@
         [SerializeField] internal ScriptableEvent<T1, T2, T3> _event;
         [SerializeField] internal EventInstancer<T1, T2, T3> _eventInstancer;
 
-        private IScriptableEvent<T1, T2, T3> Event => _eventType == EventType.ScriptableEvent ? _event : _eventInstancer;
+        private IScriptableEvent<T1, T2, T3> Event => (_eventType == EventType.ScriptableEvent) ? (IScriptableEvent<T1, T2, T3>)_event : (IScriptableEvent<T1, T2, T3>)_eventInstancer;
 
 #if UNIRX
         public IDisposable Subscribe(IObserver<(T1, T2, T3)> observer) => Event?.Subscribe(observer) ?? Disposable.Empty;
