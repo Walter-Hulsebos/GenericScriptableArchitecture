@@ -6,7 +6,7 @@
     [CustomEditor(typeof(BaseValue), true)]
     internal class ConstantEditor : Editor, IInlineDrawer
     {
-        private SerializedProperty _description;
+        //private SerializedProperty _description;
         private SerializedProperty _initialValue;
         private SerializedProperty _currentValue;
         private bool _initialValueEnabled;
@@ -20,7 +20,7 @@
             if (target == null)
                 return;
 
-            _description = serializedObject.FindProperty(nameof(BaseValue._description));
+            //_description = serializedObject.FindProperty(nameof(BaseValue._description));
             _initialValue = serializedObject.FindProperty(nameof(Constant<int>._initialValue));
             _currentValue = serializedObject.FindProperty(nameof(Constant<int>._value));
         }
@@ -43,7 +43,7 @@
             if (guiWrapper.HasMissingScript)
                 return;
 
-            EditorGUILayout.PropertyField(_description);
+            //EditorGUILayout.PropertyField(_description);
 
             _initialValueEnabled = GenericVariableEditor.DrawInitialValue(_initialValue, _initialValueEnabled);
 
